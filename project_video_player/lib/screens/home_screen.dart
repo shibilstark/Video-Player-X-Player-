@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:project_video_player/common/common_functions.dart';
-import 'package:project_video_player/database/favorites.dart';
 import 'package:project_video_player/database/last_played.dart';
 import 'package:project_video_player/screens/folder_view.dart';
 import 'package:project_video_player/screens/menu_screen.dart';
@@ -9,7 +8,6 @@ import 'package:project_video_player/screens/playlist_screen.dart';
 import 'package:project_video_player/screens/search.dart';
 import 'package:project_video_player/screens/video_player.dart';
 import 'package:project_video_player/screens/video_view.dart';
-import 'package:project_video_player/test_screen.dart';
 import 'package:project_video_player/themes/colors.dart';
 import 'favorites_screen.dart';
 
@@ -206,60 +204,13 @@ class _HomeScreenState extends State<HomeScreen> {
               activeIcon: Icon(Icons.playlist_play_rounded),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
+              icon: Icon(Icons.menu_outlined),
               label: "Watchlater",
-              activeIcon: Icon(Icons.settings_rounded),
+              activeIcon: Icon(Icons.menu_rounded),
             ),
           ]),
     );
   }
 
-  // myNavigationBar(BuildContext context) {
-  //   return SizedBox(
-  //     height: 60,
-  //     width: double.infinity,
-  //     child: BottomNavigationBar(
-
-  //       elevation: 2,
-  //         backgroundColor: color_pureWhite,
-  //         currentIndex: curretnIndex,
-  //         onTap: (index) => setState(() {
-  //               curretnIndex = index;
-  //             }),
-  //         selectedIconTheme: IconThemeData(color: primaryColor, size: 30),
-  //         unselectedIconTheme: IconThemeData(
-  //           color: secondaryColor,
-  //         ),
-  //         selectedFontSize: 12,
-  //         iconSize: 26,
-  //         // selectedItemColor: Colors.white,
-  //         showUnselectedLabels: false,
-  //         showSelectedLabels: false,
-  //         type: BottomNavigationBarType.fixed,
-  //         items: const [
-  //           BottomNavigationBarItem(
-  //             icon: Icon(
-  //               Icons.folder_outlined,
-  //             ),
-  //             label: "Home",
-  //             activeIcon: Icon(Icons.folder_rounded),
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.favorite_outline),
-  //             label: "Favorites",
-  //             activeIcon: Icon(Icons.favorite_rounded),
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.playlist_play_outlined),
-  //             label: "Playlists",
-  //             activeIcon: Icon(Icons.playlist_play_rounded),
-  //           ),
-  //           BottomNavigationBarItem(
-  //             icon: Icon(Icons.menu_open_outlined),
-  //             label: "Settings",
-  //             activeIcon: Icon(Icons.menu_open_rounded),
-  //           ),
-  //         ]),
-  //   );
-  // }
+  
 }

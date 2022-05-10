@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:project_video_player/models/last_played.dart';
 
-String? lastPlayedVid;
+
 
 ValueNotifier<List<LastPlayedModel>> lastPlayedVideos = ValueNotifier([]);
 

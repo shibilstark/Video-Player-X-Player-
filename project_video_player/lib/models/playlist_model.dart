@@ -6,7 +6,7 @@ class PlayListModel {
   @HiveField(0)
   final String folderName;
   @HiveField(1)
-  final List<String> videosList;
+  List<String> videosList;
 
   PlayListModel({required this.folderName, required this.videosList});
 }

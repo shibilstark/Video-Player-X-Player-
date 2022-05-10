@@ -60,7 +60,7 @@ class PlayListScreenBody extends StatelessWidget {
                 child: Container(
                   child: ListView.separated(
                     separatorBuilder: (context, index) => Gap(
-                      H: 10,
+                      H: 5,
                     ),
                     // padding: EdgeInsets.all(_w / 30),
                     physics: BouncingScrollPhysics(

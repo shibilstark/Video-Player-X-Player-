@@ -21,7 +21,7 @@ class _PlayListAddState extends State<PlayListAdd> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170,
+      height: 155,
       width: 300,
       decoration: BoxDecoration(color: color_pureWhite),
       child: Form(
@@ -35,7 +35,7 @@ class _PlayListAddState extends State<PlayListAdd> {
                     TextFormField(
                       style: TextStyle(color: lightColor),
                       decoration: InputDecoration(
-                          fillColor: Color.fromARGB(255, 206, 206, 206),
+                          fillColor: Color.fromARGB(255, 240, 240, 240),
                           filled: true,
                           hintStyle: TextStyle(color: secondaryColor),
                           hintText: "playlist name ....",
@@ -44,14 +44,7 @@ class _PlayListAddState extends State<PlayListAdd> {
                             color: color_pureWhite,
                           ))),
                       controller: playListNameController,
-                      // validator: (value) {
-                      //   if (value == null || value.isEmpty) {
-
-                      //     return 'Name is Empty';
-                      //   } else {
-                      //     return null;
-                      //   }
-                      // },
+                   
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),

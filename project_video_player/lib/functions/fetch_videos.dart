@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_visible_for_testing_member
+
 import 'package:flutter/widgets.dart';
 import 'package:project_video_player/functions/fetch_from_storage.dart';
 
@@ -7,6 +9,7 @@ onSuccess(List<String> vidoeListFromStorage) {
   allVideos.value = vidoeListFromStorage;
   allVideos.value
       .sort((a, b) => a.split("/").last.compareTo(b.split("/").last));
+  // ignore: invalid_use_of_protected_member
   allVideos.notifyListeners();
 }
 
@@ -14,15 +17,6 @@ fetchVideosFromStorage() async {
   List<String> query = [".mp4", ".avi", "mkv", "3gp"];
   SearchFilesInStorage.searchInStorage(query, onSuccess, (p0) {});
 }
-
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-refreshNotifiers() {
-  allVideos.notifyListeners();
-  folderList.notifyListeners();
-}
-
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 ValueNotifier<List<String>> folderList = ValueNotifier([]);
 
@@ -53,4 +47,5 @@ folderBuilder() {
 createFolderView() {
   clearFolderList();
   folderBuilder();
+  folderList.notifyListeners();
 }

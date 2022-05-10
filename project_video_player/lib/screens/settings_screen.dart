@@ -106,11 +106,11 @@ class SettingsBody extends StatelessWidget {
                                               ]),
                                         ));
 
-                               await Future.delayed(Duration(seconds: 2));
+                                await Future.delayed(Duration(seconds: 1));
 
                                 fetchVideosFromStorage();
                                 createFolderView();
-                                folderList.notifyListeners();
+
                                 refreshFavoritesList();
                                 refreshLastPlayed();
                                 refreshPlayList();

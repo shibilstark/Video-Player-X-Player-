@@ -34,7 +34,7 @@ class FolderTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
         ),
         alignment: Alignment.center,
-        height: 60,
+        height: 70,
         child: ListTile(
           onLongPress: () {
             showDialog(

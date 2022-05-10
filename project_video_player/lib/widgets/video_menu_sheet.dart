@@ -59,7 +59,7 @@ class _VideoInfoSheetState extends State<VideoInfoSheet> {
       } else {
         foundFav = false;
         setState(() {
-          IconData _favIcon = Icons.favorite_outline;
+           _favIcon = Icons.favorite_outline;
           _favIconColor = color_smooth;
         });
       }

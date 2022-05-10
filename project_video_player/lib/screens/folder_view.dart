@@ -18,7 +18,7 @@ class FolderView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: ListView.separated(
             separatorBuilder: (context, index) => Gap(
-              H: 10,
+              H: 5,
             ),
             // padding: EdgeInsets.all(_w / 30),
             physics:
