@@ -24,7 +24,7 @@ class _VideoThumnailGeneratorState extends State<VideoThumnailGenerator> {
       thumbnailPath: (await getTemporaryDirectory()).path,
       imageFormat: ImageFormat.WEBP,
       maxHeight:
-          64, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+          80, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
       quality: 75,
     );
     setState(() {
@@ -54,11 +54,14 @@ class _VideoThumnailGeneratorState extends State<VideoThumnailGenerator> {
                 size: 30,
                 color: color_pureWhite,
               ))
-          : Image.file(
-              File(thumbnail),
-              width: 60,
-              height: 40,
-            ),
+          : ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.file(
+                File(thumbnail),
+                width: 60,
+                height: 40,
+              ),
+          ),
     );
   }
 }

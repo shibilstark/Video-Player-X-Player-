@@ -34,7 +34,9 @@ clearPlayList() async {
 addVideoToPlayListFolder(
     {required folderintex, required String videoPath}) async {
   final _pl = await Hive.openBox<PlayListModel>("_pl");
+
   _pl.values.elementAt(folderintex).videosList.add(videoPath);
+
   refreshPlayList();
 }
 

@@ -31,19 +31,15 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
                     color: secondaryColor,
                   ))),
           placeholderOnTop: true,
-         
           autoPlay: true,
           fit: BoxFit.scaleDown,
           fullScreenByDefault: true,
-         
           controlsConfiguration: BetterPlayerControlsConfiguration(
             enableProgressBar: true,
             enableProgressBarDrag: true,
             progressBarPlayedColor: secondaryColor,
             playerTheme: BetterPlayerTheme.material,
             showControlsOnInitialize: true,
-            // controlBarHeight: 60,
-            
             enablePip: true,
             playbackSpeedIcon: Icons.shutter_speed_outlined,
             controlBarColor: Color.fromARGB(50, 0, 0, 0),
@@ -66,8 +62,17 @@ class _LocalVideoPlayerState extends State<LocalVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return BetterPlayer(
-      controller: _betterPlayerController,
+    final video = widget.videoUrl.split("/").last;
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text(video),
+      ),
+      backgroundColor: Colors.black,
+      body: BetterPlayer(
+        controller: _betterPlayerController,
+      ),
     );
   }
 }

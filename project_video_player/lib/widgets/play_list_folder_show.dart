@@ -11,8 +11,9 @@ playListShow(BuildContext context, currentVidoePath) {
       context: context,
       builder: (context) => AlertDialog(
             content: Container(
-              height: 450,
+              height: 300,
               width: 400,
+              decoration: BoxDecoration(),
               child: Column(children: [
                 Container(
                   height: 50,
@@ -40,7 +41,7 @@ playListShow(BuildContext context, currentVidoePath) {
                       ]),
                 ),
                 Container(
-                  height: 350,
+                  height: 200,
                   child: ValueListenableBuilder(
                     builder: (BuildContext context,
                             List<PlayListModel> playLists, Widget? child) =>
@@ -67,9 +68,6 @@ playListShow(BuildContext context, currentVidoePath) {
 }
 
 class PlayListSmallTile extends StatelessWidget {
-
-
-
   final path;
   PlayListSmallTile({Key? key, required this.path}) : super(key: key);
 
@@ -106,8 +104,6 @@ class PlayListSmallTile extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         duration: Duration(seconds: 1),
                         content: Text("Video added successfully ")));
-
-                 
                   }
                 },
                 leading: Icon(
