@@ -25,8 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
           splash: const SplashBody(),
           screenFunction: () async {
             await fetchVideosFromStorage();
-            // Navigator.of(context).pushReplacement(
-            //     MaterialPageRoute(builder: (context) => HomeScreen()));
+        
             return HomeScreen();
           }),
     );

@@ -50,18 +50,15 @@ class PlayListInnerTile extends StatelessWidget {
           leading: Container(
               height: 40,
               width: 60,
-              child:
-                  
-                  Container(
-                      decoration: BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Icon(
-                        Icons.play_arrow_rounded,
-                        size: 30,
-                        color: color_pureWhite,
-                      ))),
-
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: secondaryColor,
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Icon(
+                    Icons.play_arrow_rounded,
+                    size: 30,
+                    color: color_pureWhite,
+                  ))),
           trailing: IconButton(
             icon: Icon(
               Icons.more_vert_rounded,
@@ -91,7 +88,8 @@ class PlayListInnerTile extends StatelessWidget {
                           TextButton(
                               onPressed: () {
                                 removeVideoFromPlaylist(
-                                    playListIndex: index, vidoeIndex: index);
+                                    playListIndex: playListFolderIndex,
+                                    vidoeIndex: index);
                                 Navigator.of(context).pop();
                               },
                               child: const Text(

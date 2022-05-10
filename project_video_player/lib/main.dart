@@ -4,7 +4,6 @@ import 'package:project_video_player/models/fovorites_model.dart';
 import 'package:project_video_player/models/last_played.dart';
 import 'package:project_video_player/models/playlist_model.dart';
 import 'package:project_video_player/screens/onboard_screend.dart';
-import 'package:sizer/sizer.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -18,7 +17,7 @@ void main() async {
   if (!Hive.isAdapterRegistered(LastPlayedModelAdapter().typeId)) {
     Hive.registerAdapter(LastPlayedModelAdapter());
   }
-  // await adapterCheck();
+
 
   runApp(const MyApp());
 }
@@ -29,11 +28,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: CheckScreen(),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home:  CheckScreen(),
     );
   }
 }

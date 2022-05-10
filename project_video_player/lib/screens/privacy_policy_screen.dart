@@ -34,7 +34,7 @@ privacyAppBar(BuildContext context) {
         ),
         iconTheme: const IconThemeData(color: color_white),
         backgroundColor: primaryColor,
-        titleSpacing: -5,
+        // titleSpacing: -5,
         title: Padding(
             padding: const EdgeInsets.only(top: 2),
             child: Text(

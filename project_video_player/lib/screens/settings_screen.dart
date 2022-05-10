@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_video_player/database/last_played.dart';
 import 'package:project_video_player/database/playlist.dart';
+import 'package:project_video_player/functions/fetch_videos.dart';
 import 'package:project_video_player/screens/home_screen.dart';
 import 'package:project_video_player/themes/colors.dart';
 
@@ -35,7 +36,7 @@ SettingsAppBar(BuildContext context) {
         ),
         iconTheme: const IconThemeData(color: color_white),
         backgroundColor: primaryColor,
-        titleSpacing: -5,
+        // titleSpacing: -5,
         title: Padding(
             padding: const EdgeInsets.only(top: 2),
             child: Text(
@@ -57,6 +58,75 @@ class SettingsBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: ListView(
           children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  // color: const Color.fromARGB(69, 114, 135, 168),
+                  color: Color.fromARGB(69, 176, 200, 240),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    smallTexture(context, "Refresh"),
+                    SizedBox(
+                      height: lineHeight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Refresh Library",
+                            style: TextStyle(
+                              color: lightColor,
+                            ),
+                          ),
+                          TextButton(
+                              onPressed: () async {
+                                showDialog(
+                                    context: context,
+                                    builder: (ctx) => AlertDialog(
+                                          content: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "Refreshing Video Libraries",
+                                                  style: TextStyle(
+                                                    color: primaryColor,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                    width: 20,
+                                                    height: 20,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color: primaryColor,
+                                                    ))
+                                              ]),
+                                        ));
+
+                               await Future.delayed(Duration(seconds: 2));
+
+                                fetchVideosFromStorage();
+                                createFolderView();
+                                folderList.notifyListeners();
+                                refreshFavoritesList();
+                                refreshLastPlayed();
+                                refreshPlayList();
+
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("clear",
+                                  style: TextStyle(color: lightColor)))
+                        ],
+                      ),
+                    ),
+                  ]),
+            ),
+            Gap(
+              H: 10,
+            ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               width: double.infinity,

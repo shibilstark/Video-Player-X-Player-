@@ -74,7 +74,7 @@ innerAppBar(BuildContext context, String folderName) {
         ),
         iconTheme: IconThemeData(color: color_dark),
         backgroundColor: primaryColor,
-        titleSpacing: -5,
+        // titleSpacing: -5,
         title: Padding(
             padding: const EdgeInsets.only(top: 2),
             child: Text(

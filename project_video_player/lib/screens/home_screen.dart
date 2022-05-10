@@ -38,6 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initRefresh();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: DefaultTabController(
@@ -84,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
   homeAppBar({required BuildContext context}) {
     return PreferredSize(
       child: AppBar(
+          automaticallyImplyLeading: false,
           iconTheme: IconThemeData(color: primaryColor),
           backgroundColor: primaryColor,
           titleSpacing: 20,

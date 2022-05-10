@@ -57,6 +57,7 @@ class FolderTile extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           tileColor: color_white,
+          subtitle: Text("${currentFolderList.value.length} Videos",style: TextStyle(color: secondaryColor,fontSize: 12),),
           leading: const Icon(
             Icons.folder_rounded,
             size: 50,

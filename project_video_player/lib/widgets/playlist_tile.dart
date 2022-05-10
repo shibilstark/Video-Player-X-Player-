@@ -5,8 +5,6 @@ import '../database/playlist.dart';
 import '../themes/colors.dart';
 
 class PlayListFolderTile extends StatelessWidget {
-
-
   final index;
 
   PlayListFolderTile({Key? key, required this.index}) : super(key: key);
@@ -60,17 +58,21 @@ class PlayListFolderTile extends StatelessWidget {
                     ));
           },
           onTap: () {
-
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (ctx) => InnerPlayListScreen(
                       index: index,
                     )));
-
-                    print(" +=============================== ${index}");
           },
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           tileColor: color_pureWhite,
+          subtitle: Text(
+            "${playLists.value[index].videosList.length} Videos",
+            style: TextStyle(
+              color: secondaryColor,
+              fontSize: 12,
+            ),
+          ),
           leading: const Icon(
             Icons.playlist_play_rounded,
             size: 40,
@@ -86,24 +88,10 @@ class PlayListFolderTile extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 class RecentListTile extends StatelessWidget {
-
-
-
-  RecentListTile({Key? key,}) : super(key: key);
+  RecentListTile({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -121,8 +109,6 @@ class RecentListTile extends StatelessWidget {
         height: 60,
         child: ListTile(
           onLongPress: () {
-
-
             // showDialog(
             //     context: context,
             //     builder: (Context) => AlertDialog(
@@ -154,12 +140,8 @@ class RecentListTile extends StatelessWidget {
             //                 )),
             //           ],
             //         ));
-         
-         
           },
           onTap: () {
-
-            
             // Navigator.of(context).push(MaterialPageRoute(
             //     builder: (ctx) => InnerPlayListScreen(
             //           index: index,

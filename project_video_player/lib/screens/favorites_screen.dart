@@ -11,6 +11,7 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    refreshFavoritesList();
     return Scaffold(
       // backgroundColor: color_dark,
       body: FavoritesScreenBody(),

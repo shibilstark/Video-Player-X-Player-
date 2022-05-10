@@ -11,6 +11,7 @@ addVideoToFavorites(FavoritesModel model) async {
 
   await _fav_db.add(model);
   favoritesVideos.value.add(model);
+  refreshFavoritesList();
 }
 
 refreshFavoritesList() async {

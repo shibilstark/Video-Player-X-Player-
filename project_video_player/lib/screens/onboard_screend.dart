@@ -47,65 +47,67 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return IntroductionScreen(
-      pages: [
-        PageViewModel(
-          titleWidget: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Lottie.asset("assets/lottie/logo.json", width: 150)),
-                Gap(
-                  H: 20,
+    return SafeArea(
+      child: Scaffold(
+        body: IntroductionScreen(
+          pages: [
+            PageViewModel(
+              titleWidget: Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Lottie.asset("assets/lottie/logo.json",
+                            width: 100)),
+                    Gap(
+                      H: 10,
+                    ),
+                    Text(
+                      "X Player",
+                      style: TextStyle(
+                          color: primaryColor,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 0),
+                      child: Container(
+                          margin: EdgeInsets.only(top: 10),
+                          child: Image.asset(
+                            "assets/img/introImage.png",
+                            width: 300,
+                          )),
+                    ),
+                  ],
                 ),
-                Text(
-                  "X Player",
-                  style: TextStyle(
-                      color: primaryColor,
-                      fontSize: 36,
-                      fontWeight: FontWeight.w500),
+              ),
+              bodyWidget: SizedBox(),
+              footer: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: secondaryColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Container(
-                      margin: EdgeInsets.only(top: 50),
-                      child: Image.asset("assets/img/introImage.png")),
-                ),
-              ],
+                onPressed: () {
+                  setStatus();
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => SplashScreen()));
+                  // pushToScreen(context: context, page: TestScreen());
+                },
+                child: Text("Get Start"),
+              ),
             ),
-          ),
-          // image: Padding(
-          //   padding: const EdgeInsets.symmetric(vertical: 30),
-          //   child: Container(
-          //       margin: EdgeInsets.only(top: 50),
-          //       child: Image.asset("assets/img/introImage.png")),
-          // ),
-          body: "",
-          footer: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: secondaryColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-            ),
-            onPressed: () {
-              setStatus();
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => SplashScreen()));
-              // pushToScreen(context: context, page: TestScreen());
-            },
-            child: Text("Get Start"),
-          ),
+          ],
+          showSkipButton: false,
+          showDoneButton: false,
+          showNextButton: false,
         ),
-      ],
-      showSkipButton: false,
-      showDoneButton: false,
-      showNextButton: false,
+      ),
     );
   }
 }

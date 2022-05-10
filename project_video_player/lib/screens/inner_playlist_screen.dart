@@ -17,7 +17,7 @@ class InnerPlayListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final playListName = playLists.value[index].folderName;
-
+    refreshPlayList();
     return Scaffold(
       // backgroundColor: color_dark,
       body: PlayListInnerScreenBody(
@@ -44,7 +44,7 @@ aboutAppBar({required BuildContext context, required String playListName}) {
         ),
         iconTheme: const IconThemeData(color: color_white),
         backgroundColor: primaryColor,
-        titleSpacing: -5,
+        // titleSpacing: -5,
         title: Padding(
             padding: const EdgeInsets.only(top: 2),
             child: Text(
@@ -54,50 +54,6 @@ aboutAppBar({required BuildContext context, required String playListName}) {
       ));
 }
 
-// class PlayListInnerScreenBody extends StatelessWidget {
-//   final index;
-//   const PlayListInnerScreenBody({Key? key, required this.index})
-//       : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ValueListenableBuilder(
-//         valueListenable: playLists,
-//         builder: (BuildContext context, List<PlayListModel> playlists,
-//             Widget? child) {
-//           return playLists.value[index].videosList.isEmpty
-//               ? Container(
-//                   child: const Center(
-//                       child: Text(
-//                     "No videos added",
-//                     style: TextStyle(color: primaryColor),
-//                   )),
-//                 )
-//               : Padding(
-//                   padding:
-//                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-//                   child: ListView.separated(
-//                     separatorBuilder: (context, index) => const Gap(
-//                       H: 10,
-//                     ),
-//                     // padding: EdgeInsets.all(_w / 30),
-//                     physics: const BouncingScrollPhysics(
-//                         parent: AlwaysScrollableScrollPhysics()),
-//                     itemCount:
-//                     playLists.value[index].videosList.length
-//                     ,
-//                     itemBuilder: (BuildContext context, int indcex) {
-//                       return PlayListInnerTile(
-//                         index: indcex,
-//                         playlistVideos: playLists.value[index].videosList,
-//                       );
-//                     },
-//                   ),
-//                 );
-//         });
-//   }
-// }
-
 class PlayListInnerScreenBody extends StatelessWidget {
   final index;
   const PlayListInnerScreenBody({Key? key, required this.index})
@@ -105,10 +61,14 @@ class PlayListInnerScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    refreshPlayList();
     return ValueListenableBuilder(
         valueListenable: playLists,
         builder: (BuildContext context, List<PlayListModel> playlists,
             Widget? child) {
+
+              final innerList = playLists.value[index].videosList;
+         
           return playLists.value[index].videosList.isEmpty
               ? Container(
                   child: const Center(
@@ -132,7 +92,7 @@ class PlayListInnerScreenBody extends StatelessWidget {
                       return PlayListInnerTile(
                           playListFolderIndex: this.index,
                           index: index,
-                          playListInnerList: playLists.value[index].videosList);
+                          playListInnerList: innerList);
 
                       //  PlayListInnerTile(
                       //   index: index,

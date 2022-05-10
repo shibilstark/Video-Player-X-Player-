@@ -2,6 +2,9 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:project_video_player/database/favorites.dart';
+import 'package:project_video_player/database/last_played.dart';
+import 'package:project_video_player/database/playlist.dart';
 import 'package:share_plus/share_plus.dart';
 
 import 'package:url_launcher/url_launcher_string.dart';
@@ -21,8 +24,6 @@ class Gap extends StatelessWidget {
     );
   }
 }
-
-
 
 sizeReduce({required mb}) {
   if (mb <= 1024) {
@@ -47,4 +48,10 @@ shareFile(String file) async {
   final video = File(file);
 
   await Share.shareFiles([file]);
+}
+
+initRefresh() async {
+  refreshFavoritesList();
+  refreshLastPlayed();
+  refreshPlayList();
 }

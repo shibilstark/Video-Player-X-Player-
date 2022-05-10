@@ -4,7 +4,7 @@ import 'package:project_video_player/common/common_functions.dart';
 import 'package:project_video_player/screens/privacy_policy_screen.dart';
 import 'package:project_video_player/screens/settings_screen.dart';
 import 'package:project_video_player/themes/colors.dart';
-import 'package:sizer/sizer.dart';
+
 import 'home_screen.dart';
 
 const aboutStyle = TextStyle(color: primaryColor, fontWeight: FontWeight.w500);
@@ -24,7 +24,7 @@ class AboutScreen extends StatelessWidget {
 
 aboutAppBar(BuildContext context) {
   return PreferredSize(
-      preferredSize: Size.fromHeight(50.h),
+      preferredSize: Size.fromHeight(50),
       child: AppBar(
         leading: IconButton(
           icon: const Icon(
@@ -38,7 +38,7 @@ aboutAppBar(BuildContext context) {
         ),
         iconTheme: const IconThemeData(color: color_white),
         backgroundColor: primaryColor,
-        titleSpacing: -5,
+        // titleSpacing: -5,
         title: Padding(
             padding: const EdgeInsets.only(top: 2),
             child: Text(
